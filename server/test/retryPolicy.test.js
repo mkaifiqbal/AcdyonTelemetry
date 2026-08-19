@@ -1,0 +1,2 @@
+import test from 'node:test'; import assert from 'node:assert/strict'; import { retryDelay } from '../src/services/ingestion/retryPolicy.js';
+test('retry delay grows exponentially with bounded jitter', () => { for (let attempt = 1; attempt <= 5; attempt += 1) { const delay = retryDelay(attempt); const base = Math.min(1000 * (2 ** (attempt - 1)), 16000); assert.ok(delay >= base && delay < base + 500); } });

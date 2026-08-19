@@ -1,0 +1,2 @@
+import { axios, timed } from './base.js'; import { normalizeJob } from '../normalize.js';
+export const arbeitnow = { id: 'arbeitnow', configured: () => true, fetchJobs: () => timed('Arbeitnow', () => axios.get('https://www.arbeitnow.com/api/job-board-api', { timeout: 15000 }), (body) => (body.data || []).map((j) => normalizeJob({ id:j.slug,title:j.title,company:j.company_name,location:j.location,tags:j.tags,url:j.url }, 'Arbeitnow'))) };

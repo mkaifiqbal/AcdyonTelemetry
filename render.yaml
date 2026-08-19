@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: acdyon-ingestion-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install && npx playwright install chromium
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: PLAYWRIGHT_ENABLED
+        value: true
