@@ -12,13 +12,7 @@ node_modules/
 **/.env.*
 !**/.env.example
 
-# Production build outputs
-dist/
-**/dist/
-build/
-**/build/
-.next/
-out/
+
 
 # Logs & debugging
 *.log
