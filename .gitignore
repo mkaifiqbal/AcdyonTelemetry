@@ -12,8 +12,11 @@ node_modules/
 **/.env.*
 !**/.env.example
 
-
-
+# Production build outputs
+dist/
+**/dist/
+build/
+**/build/
 # Logs & debugging
 *.log
 npm-debug.log*
